@@ -17,4 +17,14 @@ class Sub < ApplicationRecord
     foreign_key: :moderator_id,
     class_name: :User
 
+  has_many :postscrossed,
+    foreign_key: :sub_id,
+    class_name: :PostSub
+
+  has_many :posts,
+    through: :postscrossed,
+    source: :post
+
+
+
 end
